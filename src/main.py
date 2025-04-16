@@ -1,6 +1,7 @@
 from Extract import Extract_Data
 from Transform import Transform_Data
 from Load import Load_Data
+from Load import Load_Local
 
 if __name__ == "__main__":
     Tickers = ['AAPL', 'MSFT','NVDA','AMZN']
@@ -18,10 +19,10 @@ if __name__ == "__main__":
         
         #load_to_csv(transformed_df, ticker)
         print(f"Load data ...")
-        data_transform = Transform_HistoricalData
         table_name = "Data_{}".format(ticker)
-        db_user = "user"
-        db_password = ""
-        db_name = "DB"
+        db_user = "xxxx"
+        db_password = "xxxx"
+        db_name = "xx"
         db_host = "x.x.x.x"
-        Load_HistoricalData = Load_Data(data_transform,table_name, db_user, db_password, db_name, db_host, db_port=5432)
+        Load_HistoricalData = Load_Data(Tickers,Transform_HistoricalData,table_name, db_user, db_password, db_name, db_host, db_port=5432)
+        load_local = Load_Local(Tickers,Transform_HistoricalData)
