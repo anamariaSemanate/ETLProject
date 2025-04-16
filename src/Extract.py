@@ -2,7 +2,7 @@ import pandas as pd
 import yfinance as yf
 from typing import List
 
-def Extract_Data(list_tickers:List[str], start_date: str, end_date: str) -> pd.DataFrame:
+def Extract_Data(list_tickers:List[str], start_date: str, end_date: str):
     """extract historical data of stocks
     list_stocks: this are the list that contain the symbols to refer the actions
     time _star: time initial of the period of time ('YYYY-MM-DD')
