@@ -6,12 +6,13 @@ def Load_Data(data_transform,table_name, db_user, db_password, db_name, db_host,
     """
     Upload a pandas DataFrame to a PostgreSQL table in Google Cloud SQL.
     Args:
-    df (pd.DataFrame): The DataFrame to upload.
+    data_transform: The DataFrame to upload.
     table_name (str): Name of the destination table in the database.
     db_user (str): Database username.
     db_password (str): Database password.
     db_name (str): Database name.
-    instance_connection_name (str): Instance connection name (project:region:instance).
+    db_host (int): the public IP.
+    db_port (int): 5432
     """
     try:
         engine = create_engine(f'postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}')
@@ -20,4 +21,17 @@ def Load_Data(data_transform,table_name, db_user, db_password, db_name, db_host,
     except Exception as e:
         print(f"Error al subir la tabla: {e}")
 
-    return data_transform.to_csv('data/processed.csv', index=False)
+    return print("successful upload")
+
+
+
+def Load_Local(Tickers,data_transform):
+    processed_files = []
+    
+    # Iterate over the Tickers and save the file
+    for T in Tickers:
+        file_name = f'data/processed_{T}.csv'
+        data_transform.to_csv(file_name, index=False)
+        processed_files.append(file_name)  # Save the name of the processed file
+    
+    return processed_files
