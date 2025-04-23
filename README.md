@@ -9,8 +9,11 @@ Load: Stores the transformed data in a CSV file, a local database, or a remote G
 
 Technologies Used
     -pandas                    2.2.3
+    
     -yfinance                  0.2.55
+    
     -typing_extensions         4.13.2
+    
     -SQLAlchemy                2.0.40
 
 project execution
