@@ -8,6 +8,7 @@ Transformation: Data cleansing, date standardization, data type conversion, and 
 Load: Stores the transformed data in a CSV file, a local database, or a remote Google Cloud database, as required.
 
 Technologies Used
+
     -pandas                    2.2.3
     
     -yfinance                  0.2.55
